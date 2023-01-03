@@ -3,6 +3,7 @@ from typing import List
 from services.crawler import Crawler
 from services.downloader import Downloader
 from services.unionLeitor import parser
+from services.zip import zip
 
 if __name__ == "__main__":
     print("Bem vindo(a) ao Mango Downloader!")
@@ -15,5 +16,6 @@ if __name__ == "__main__":
         manga_pages: List[str] = crawler.getMangaImageUrls(chapter_link)
 
         downloader.downloadImage(manga_pages)
+        zip()
     else:
         print("Error! URL inválida, tente novamente.")
