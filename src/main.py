@@ -2,8 +2,8 @@ from typing import List
 
 from services.crawler import Crawler
 from services.downloader import Downloader
-from services.unionLeitor import parser
-from services.zip import zip
+from modules.unionLeitor import parser
+from modules.terminal.zip import zip
 
 if __name__ == "__main__":
     print("Bem vindo(a) ao Mango Downloader!")
