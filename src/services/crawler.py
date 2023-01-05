@@ -44,7 +44,8 @@ class Crawler:
             if(
                 image.attrs["src"] != None and 
                 parser.isValidMangaImage(image.attrs["src"]) and
-                parser.isValidImage(image.attrs["src"])
+                parser.isValidImage(image.attrs["src"]) and
+                parser.isNotBanner(image.attrs["src"])
             ):
                 imagesUrl.append(image.attrs["src"])
                 

@@ -57,11 +57,29 @@ def isValidMangaImage(url: str) -> bool:
     :class:`bool`
     """
 
-    validations: List[str] = ["umangas.club", "leitor", "mangas"]
+    validations: List[str] = ["umangas.club", "unionleitor.top", "leitor", "mangas"]
     counter: int = 0
     
     for validation in validations:
         if(url.find(validation) != -1):
             counter += 1
 
-    return counter == len(validations)
+    return counter >= 2
+
+def isNotBanner(url: str) -> bool:
+    """ Verifica se a imagem é um banner.
+
+    Parameters
+    ----------
+    url: :class:`str`
+        URL que deseja verificar.
+
+    Returns
+    -------
+    :class:`bool`
+    """
+
+    if(url.find("banner") != -1):
+        return False
+
+    return True
