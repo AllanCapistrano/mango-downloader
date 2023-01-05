@@ -35,7 +35,7 @@ class Downloader:
                     run(command=command)
                     
                     directory_name: str = "mangas/'" + temp[MANGA_NAME_INDEX] + "'/" + temp[MANGA_CHAPTER_INDEX]
-                    image_extension: str= temp[FILE_EXTENSION_INDEX][3:7]
+                    image_extension: str= temp[FILE_EXTENSION_INDEX][-4:]
 
                     self.__moveFiles__(
                         file_extension=image_extension, 
