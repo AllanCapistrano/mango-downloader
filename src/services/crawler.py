@@ -3,7 +3,7 @@ from typing import List
 import requests
 from bs4 import BeautifulSoup
 
-from ..modules.unionLeitor import parser
+from modules import parser
 
 class Crawler:
     def __reqUrl__(self, url: str) -> BeautifulSoup:
