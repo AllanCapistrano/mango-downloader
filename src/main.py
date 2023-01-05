@@ -15,7 +15,7 @@ if __name__ == "__main__":
 
         manga_pages: List[str] = crawler.getMangaImageUrls(chapter_link)
 
-        downloader.downloadImage(manga_pages)
+        downloader.downloadImages(manga_pages)
         zip()
     else:
         print("Error! URL inválida, tente novamente.")
