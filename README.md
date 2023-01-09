@@ -2,8 +2,7 @@
 Baixa capítulos de mangás e os salva no Google Drive.
 
 ## 🖥️ Como utilizar
-<details>
-<summary><h2>Configurando o Google Drive</h2></summary>
+<h2>Configurando o Google Drive</h2>
 
 1. Crie uma pasta no [Google Drive](https://drive.google.com/drive/my-drive) para onde serão feitos os uploads dos arquivos;
 2. Entre na [Google Cloud Plataform](https://console.cloud.google.com) e clique em **Criar Projeto**;
@@ -32,10 +31,7 @@ Baixa capítulos de mangás e os salva no Google Drive.
 ###### Obs<sup>1</sup>: Caso seja um usuário do Google Workspace, poderá utilizar a opção **Interno** caso deseje. ######
 ###### Obs<sup>2</sup>: Caso queira poderá preencher os demais campos não obrigatórios também. ######
 
-</details>
-
-<details>
-<summary><h2>Executando o projeto</h2></summary>
+<h2>Executando o projeto</h2>
 
 1. O projeto executa comandos diretamente no [Sistema Operacional](https://en.wikipedia.org/wiki/Operating_system), desa forma, o mesmo possui a depedência operacional **zip**, então antes de executá-lo, é necessário garantir que a mesma já está instalada, caso não esteja, busque qual o comando para instar na sua distribuição Linux. Alguns exemplos:
    ```powershell
@@ -89,5 +85,3 @@ Baixa capítulos de mangás e os salva no Google Drive.
 
 ###### Obs<sup>3</sup>: Caso não tenha copiado, acesse a [Google Cloud Plataform](https://console.cloud.google.com), na aba de **Credenciais** do projeto, em **IDs do cliente OAuth 2.0**, clique em **Editar cliente OAuth**, e então copie o **ID do cliente** e a **Chave secreta do cliente**. ######
 ###### Obs<sup>4</sup>: Somente na primeira vez que executar o programa, será necessário se autenticar utilizando uma conta Google, deve ser a mesma em que foi criada a pasta no passo **1** - [Configurando o Google Drive](#configurando-o-google-drive) e a mesma definida no passo **15** - [Configurando o Google Drive](#configurando-o-google-drive). ######
-
-</details>
