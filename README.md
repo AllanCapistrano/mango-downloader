@@ -88,6 +88,6 @@ Baixa capítulos de mangás e os salva no Google Drive.
    ```
 
 ###### Obs<sup>3</sup>: Caso não tenha copiado, acesse a [Google Cloud Plataform](https://console.cloud.google.com), na aba de **Credenciais** do projeto, em **IDs do cliente OAuth 2.0**, clique em **Editar cliente OAuth**, e então copie o **ID do cliente** e a **Chave secreta do cliente**. ######
-###### Obs<sup>4</sup>: Somente na primeira vez que executar o programa, será necessário se autenticar utilizando uma conta Google, deve ser a mesma em que foi criada a pasta (passo **1** - [Configurando o Google Drive](#configurando-o-google-drive)) e a mesma definida no passo **15** - [Configurando o Google Drive](#configurando-o-google-drive). ######
+###### Obs<sup>4</sup>: Somente na primeira vez que executar o programa, será necessário se autenticar utilizando uma conta Google, deve ser a mesma em que foi criada a pasta no passo **1** - [Configurando o Google Drive](#configurando-o-google-drive) e a mesma definida no passo **15** - [Configurando o Google Drive](#configurando-o-google-drive). ######
 
 </details>
