@@ -35,16 +35,21 @@ class Uploader:
         """
 
         if(len(files) > 0):
+            if(FOLDER_ID == ""):
+                raise ValueError("Erro! É necessário informar o id da pasta para fazer o upload.")
+            
             try:
                 for upload_file in files:
                     gfile = self.drive.CreateFile({'parents': [{'id': FOLDER_ID}]})
                     
-                    # Read file and set it as the content of this instance.
+                    
                     gfile.SetContentFile(upload_file)
-                    gfile.Upload() # Upload the file.
+                    gfile.Upload()
                 
                 print("Os capítulos baixados já estão disponíveis no Google Drive!")
-                print(GOOGLE_DRIVE_LINK)
+                
+                if(GOOGLE_DRIVE_LINK != ""):
+                    print(GOOGLE_DRIVE_LINK)
 
                 return True
             except Exception as e:
