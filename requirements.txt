@@ -3,3 +3,5 @@ lxml
 requests
 rich
 Command
+python-dotenv
+pydrive
