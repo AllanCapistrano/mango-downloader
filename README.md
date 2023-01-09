@@ -1,7 +1,7 @@
 # mango-downloader
 
-## 📖 Descrição do Projeto ##
-> **O projeto se trata de um programa escrito em [Python](https://www.python.org/) para baixa capítulos de mangás e disponibilizá-los na plataforma [Google Drive](https://drive.google.com/drive/my-drive).**
+## 📖 Descrição ##
+> **O programa se trata de um programa escrito em [Python](https://www.python.org/) para baixa capítulos de mangás e disponibilizá-los na plataforma [Google Drive](https://drive.google.com/drive/my-drive).**
 > 
 > Para isso é informado a URL do capitúlo do mangá (consutar as [plataformas suportadas](#-plataformas-suportadas)), é feito o download das imagens, os arquivos então são comprimidos utilizando `.zip`, e fica disponível em uma pasta do [Google Drive](https://drive.google.com/drive/my-drive) configurada pelo usuário.
 >
@@ -42,9 +42,9 @@
 ###### Obs<sup>1</sup>: Caso seja um usuário do Google Workspace, poderá utilizar a opção **Interno** caso deseje. ######
 ###### Obs<sup>2</sup>: Caso queira poderá preencher os demais campos não obrigatórios também. ######
 
-<h2>Executando o projeto</h2>
+<h2>Executando o programa</h2>
 
-1. O projeto executa comandos diretamente no [Sistema Operacional](https://en.wikipedia.org/wiki/Operating_system), desa forma, o mesmo possui a depedência operacional **zip**, então antes de executá-lo, é necessário garantir que a mesma já está instalada, caso não esteja, busque qual o comando para instar na sua distribuição Linux. Alguns exemplos:
+1. O programa executa comandos diretamente no [Sistema Operacional](https://en.wikipedia.org/wiki/Operating_system), desa forma, o mesmo possui a depedência operacional **zip**, então antes de executá-lo, é necessário garantir que a mesma já está instalada, caso não esteja, busque qual o comando para instar na sua distribuição Linux. Alguns exemplos:
    ```powershell
    # Debian-based
    sudo apt install zip
@@ -61,7 +61,7 @@
    # OpenSUSE
    sudo zypper install zip
    ```
-2. Faça o download das dependências do projeto:
+2. Faça o download das dependências do programa:
    ```powershell
    pip install -r requirements.txt
    ```
@@ -89,7 +89,7 @@
    1. [Opcional] `GOOGLE_DRIVE_LINK` link para acessar a pasta em que será feito o upload dos arquivos (passo **1** - [Configurando o Google Drive](#configurando-o-google-drive))
    2. `FOLDER_ID` ID da pasta em que será feito o upload dos arquivos (passo **1** - [Configurando o Google Drive](#configurando-o-google-drive)), por exemplo no link "https://drive.google.com/drive/folders/id_da_pasta"
 6. Abra o arquivo `settings.yaml` e preencha os campos `client_id` e `client_secret`, com o que foi copiado<sup>3</sup> no passo **19** - [Configurando o Google Drive](#configurando-o-google-drive);
-7. Após isso, com um terminal aberto no diretório do projeto, basta executar o comando<sup>4</sup>:
+7. Após isso, com um terminal aberto no diretório do programa, basta executar o comando<sup>4</sup>:
    ```powershell
    python src/main.py
    ```
