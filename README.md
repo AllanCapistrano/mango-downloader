@@ -19,7 +19,7 @@ Baixa capítulos de mangás e os salva no Google Drive.
 12. Em **Informações do app**, digite<sup>2</sup> o **Nome do app** e selecione um **E-mail para suporte do usuário**;
 13. Em **Dados de contato do desenvolvedor**, digite **Endereços de e-mail** para o contato, e depois clique em **Salvar e continar**;
 14. Em **Escopos** clique em **Salvar e continar**;
-15. Em **Usuários de teste**, adicione a conta Google que deseja fazer upload dos arquivos (a mesma em que foi criada a pasta no passo **1** - [Configurando o Google Drive](configurando-o-google-drive)), e clique em **Salvar e continar**;
+15. Em **Usuários de teste**, adicione a conta Google que deseja fazer upload dos arquivos (a mesma em que foi criada a pasta no passo **1** - [Configurando o Google Drive](#configurando-o-google-drive)), e clique em **Salvar e continar**;
 16. Em **Resumo** clique em **Voltar para o Painel**;
 17. Repita os passos **7** e **8**;
 18. Mas agora, selecione **App para computador**, digite o **Nome**, e clique em **Criar**;
@@ -79,15 +79,15 @@ Baixa capítulos de mangás e os salva no Google Drive.
    mv settings.example.yaml settings.yaml
    ```
 5. Abra o arquivo `.env` e preencha os campos:
-   1. [Opcional] `GOOGLE_DRIVE_LINK` link para acessar a pasta em que será feito o upload dos arquivos (passo **1** - [Configurando o Google Drive](configurando-o-google-drive))
-   2. `FOLDER_ID` ID da pasta em que será feito o upload dos arquivos (passo **1** - [Configurando o Google Drive](configurando-o-google-drive)), por exemplo no link "https://drive.google.com/drive/folders/id_da_pasta"
-6. Abra o arquivo `settings.yaml` e preencha os campos `client_id` e `client_secret`, com o que foi copiado<sup>3</sup> no passo **19** - [Configurando o Google Drive](configurando-o-google-drive);
+   1. [Opcional] `GOOGLE_DRIVE_LINK` link para acessar a pasta em que será feito o upload dos arquivos (passo **1** - [Configurando o Google Drive](#configurando-o-google-drive))
+   2. `FOLDER_ID` ID da pasta em que será feito o upload dos arquivos (passo **1** - [Configurando o Google Drive](#configurando-o-google-drive)), por exemplo no link "https://drive.google.com/drive/folders/id_da_pasta"
+6. Abra o arquivo `settings.yaml` e preencha os campos `client_id` e `client_secret`, com o que foi copiado<sup>3</sup> no passo **19** - [Configurando o Google Drive](#configurando-o-google-drive);
 7. Após isso, com um terminal aberto no diretório do projeto, basta executar o comando<sup>4</sup>:
    ```powershell
    python src/main.py
    ```
 
 ###### Obs<sup>3</sup>: Caso não tenha copiado, acesse a [Google Cloud Plataform](https://console.cloud.google.com), na aba de **Credenciais** do projeto, em **IDs do cliente OAuth 2.0**, clique em **Editar cliente OAuth**, e então copie o **ID do cliente** e a **Chave secreta do cliente**. ######
-###### Obs<sup>4</sup>: Somente na primeira vez que executar o programa, será necessário se autenticar utilizando uma conta Google, deve ser a mesma em que foi criada a pasta (passo **1** - [Configurando o Google Drive](configurando-o-google-drive)) e a mesma definida no passo **15** - [Configurando o Google Drive](configurando-o-google-drive). ######
+###### Obs<sup>4</sup>: Somente na primeira vez que executar o programa, será necessário se autenticar utilizando uma conta Google, deve ser a mesma em que foi criada a pasta (passo **1** - [Configurando o Google Drive](#configurando-o-google-drive)) e a mesma definida no passo **15** - [Configurando o Google Drive](#configurando-o-google-drive). ######
 
 </details>
