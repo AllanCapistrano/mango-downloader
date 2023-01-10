@@ -12,7 +12,7 @@ FILE_EXTENSION_INDEX = 7
 # ---------------------------------------------------------------------------- #
 
 class Downloader:
-    def downloadImages(self, urls: List[str]) -> None:
+    def downloadImages(self, urls: List[str]) -> bool:
         """ Baixa as imagens a partir de uma URL, e coloca no diretório 
         `mangas/<nome do mangá>/<capítulo do mangá>`.
 
@@ -44,9 +44,16 @@ class Downloader:
                         directory_name=directory_name
                     )
 
-                    print("Capítulo do mangá baixado com sucesso!")
+                    print("Capítulo " + temp[MANGA_CHAPTER_INDEX] + " do mangá '" + temp[MANGA_NAME_INDEX] + "' foi baixado com sucesso!")
+
+                    return True
                 except:
                     print("Erro ao tentar baixar as imagens!")
-                    exit()
+                    
+                    return False
+
+            return False
         else:
-            print("Este capítulo não possui páginas para serem baixadas!")
+            print("O capítulo não possui páginas para serem baixadas!")
+
+            return False
