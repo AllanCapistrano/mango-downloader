@@ -1,6 +1,6 @@
 from typing import List
 
-def idValidUrl(url: str) -> bool:
+def isValidUrl(url: str) -> bool:
     """ Verifica se a URL passada é de uma página do site `unionleitor.top/`.
 
     Parameters

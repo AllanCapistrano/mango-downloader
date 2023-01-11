@@ -39,7 +39,7 @@ if __name__ == "__main__":
 
     # Fazendo o download dos capítulos.
     for chapter in chapters:
-        if(parser.idValidUrl(chapter["chapter_link"])):
+        if(parser.isValidUrl(chapter["chapter_link"])):
             crawler: Crawler = Crawler()
             downloader: Downloader = Downloader()
             uploader: Uploader = Uploader()
