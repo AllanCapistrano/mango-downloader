@@ -9,31 +9,39 @@ from modules.terminal.zip import zip
 from modules.terminal.removeFiles import removeFilesAndDirectories
 
 if __name__ == "__main__":
+    crawler: Crawler = Crawler()
+    downloader: Downloader = Downloader()
+    uploader: Uploader = Uploader()
+
+    chapters: List[Dict[str, bool]] = []
+
+    option: str = ""
+
     print("Bem vindo(a) ao Mango Downloader!")
 
-    chapter_link: str = input("Digite a URL do capítulo que deseja baixar: ")
-    chapters: List[Dict[str, bool]] = [
-        {
-            "chapter_link": chapter_link,
-            "downloaded": False
-        }
-    ]
-
-    option: str = input("Deseja baixar mais algum capítulo (S/n)? ")
-
     while(option != "N" and option != "n"):
+        link: str = input("Digite a URL do capítulo ou mangá que deseja baixar: ")
+
+        if(parser.isMangaLink(link)): # Caso seja um link de um mangá.
+            for chapter_link in crawler.getChaptersUrls(link):
+                chapters.append(
+                    {
+                        "chapter_link": chapter_link,
+                        "downloaded": False
+                    }
+                )
+        else:
+            chapters.append(
+                {
+                    "chapter_link": link,
+                    "downloaded": False
+                }
+            )
+        
+        option: str = input("Deseja baixar mais algum capítulo ou mangá (S/n)? ")
+
         if(option != "S" and option != "s"):
             print("Opção inválida! Tente novamente.")
-
-        chapter_link: str = input("Digite a URL do capítulo que deseja baixar: ")    
-        chapters.append(
-            {
-                "chapter_link": chapter_link,
-                "downloaded": False
-            }
-        )
-
-        option: str = input("Deseja baixar mais algum capítulo (S/n)? ")
 
     system("clear") # Limpando o terminal
 
