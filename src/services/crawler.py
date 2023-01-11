@@ -51,3 +51,25 @@ class Crawler:
                 
         
         return imagesUrl
+
+    def getChaptersUrls(self, url: str) -> List[str]:
+        """ Obtém todas as URLs dos capítulos de um mangá.
+
+        Parameters
+        -----------
+        url: :class:`str`
+            Url do do mangá.
+
+        Returns
+        -------
+        :class:`List[str]`
+        """
+
+        chapter_links: List[str] = []
+
+        for chapters in self.__reqUrl__(url).find_all("div", class_="capitulos"):
+            chapter = chapters.find("a")
+
+            chapter_links.append(chapter.attrs["href"])
+
+        return chapter_links
