@@ -14,7 +14,7 @@ class Crawler:
         Parameters
         -----------
         url: :class:`str`
-            Url do site.
+            URL do site.
 
         Returns
         -----------
@@ -32,7 +32,7 @@ class Crawler:
         Parameters
         -----------
         url: :class:`str`
-            Url do capítulo do mangá
+            URL do capítulo do mangá
 
         Returns
         -------
@@ -59,7 +59,7 @@ class Crawler:
         Parameters
         -----------
         url: :class:`str`
-            Url do mangá.
+            URL do mangá.
 
         Returns
         -------
@@ -81,7 +81,7 @@ class Crawler:
         Parameters
         -----------
         url: :class:`str`
-            Url da página de lista de mangás.
+            URL da página de lista de mangás.
 
         Returns
         -------
@@ -95,13 +95,33 @@ class Crawler:
 
         return mangaNames
 
+    def getAllMangaUrls(self, url: str) -> List[str]:
+        """ Obtém a URL de todos os mangás listados na página.
+
+        Parameters
+        -----------
+        url: :class:`str`
+            URL da página de lista de mangás.
+
+        Returns
+        -------
+        :class:`List[str]`
+        """
+
+        mangaUrls: List[str] = []
+
+        for manga in self.__reqUrl__(url).find_all("div", class_="lista-mangas-novos"):
+            mangaUrls.append(manga.find("a").attrs["href"])
+
+        return mangaUrls
+
     def getLastPageNumberMangaList(self, url: str) -> int:
         """ Obtém o número da última página da lista de mangás.
 
         Parameters
         -----------
         url: :class:`str`
-            Url da primeira página da lista de mangás.
+            URL da primeira página da lista de mangás.
 
         Returns
         -------
