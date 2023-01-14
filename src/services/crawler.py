@@ -88,12 +88,12 @@ class Crawler:
         :class:`List[str]`
         """
 
-        mangaNames: List[str] = []
+        manga_names: List[str] = []
 
         for manga in self.__reqUrl__(url).find_all("div", class_="lista-mangas-novos"):
-            mangaNames.append(manga.find("b").contents[0])
+            manga_names.append(manga.find("b").contents[0])
 
-        return mangaNames
+        return manga_names
 
     def getAllMangaUrls(self, url: str) -> List[str]:
         """ Obtém a URL de todos os mangás listados na página.
@@ -108,12 +108,12 @@ class Crawler:
         :class:`List[str]`
         """
 
-        mangaUrls: List[str] = []
+        manga_urls: List[str] = []
 
         for manga in self.__reqUrl__(url).find_all("div", class_="lista-mangas-novos"):
-            mangaUrls.append(manga.find("a").attrs["href"])
+            manga_urls.append(manga.find("a").attrs["href"])
 
-        return mangaUrls
+        return manga_urls
 
     def getLastPageNumberMangaList(self, url: str) -> int:
         """ Obtém o número da última página da lista de mangás.
