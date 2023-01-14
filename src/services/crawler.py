@@ -58,7 +58,7 @@ class Crawler:
         Parameters
         -----------
         url: :class:`str`
-            Url do do mangá.
+            Url do mangá.
 
         Returns
         -------
@@ -73,3 +73,23 @@ class Crawler:
             chapter_links.append(chapter.attrs["href"])
 
         return chapter_links
+
+    def getAllMangaNames(self, url: str) -> List[str]:
+        """ Obtém o nome de todos os mangás listados na página.
+
+        Parameters
+        -----------
+        url: :class:`str`
+            Url da página de lista de mangás.
+
+        Returns
+        -------
+        :class:`List[str]`
+        """
+
+        mangaNames: List[str] = []
+
+        for manga in self.__reqUrl__(url).find_all("div", class_="lista-mangas-novos"):
+            mangaNames.append(manga.find("b").contents[0])
+
+        return mangaNames
