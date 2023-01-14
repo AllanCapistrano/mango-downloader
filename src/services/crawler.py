@@ -1,4 +1,5 @@
 from typing import List
+from re import sub
 
 import requests
 from bs4 import BeautifulSoup
@@ -93,3 +94,21 @@ class Crawler:
             mangaNames.append(manga.find("b").contents[0])
 
         return mangaNames
+
+    def getLastPageNumberMangaList(self, url: str) -> int:
+        """ Obtém o número da última página da lista de mangás.
+
+        Parameters
+        -----------
+        url: :class:`str`
+            Url da primeira página da lista de mangás.
+
+        Returns
+        -------
+        :class:`int`
+        """
+
+        pagination = self.__reqUrl__(url).find("ul", class_="pagination")
+        last_manga_list_page: str = pagination.find_all("li")[-1].find("a").attrs["href"]
+
+        return int(sub(r"\D", "", last_manga_list_page))
