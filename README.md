@@ -44,22 +44,30 @@
 
 <h2>Executando o programa</h2>
 
-1. O programa executa comandos diretamente no [Sistema Operacional](https://en.wikipedia.org/wiki/Operating_system), desa forma, o mesmo possui a depedência operacional **zip**, então antes de executá-lo, é necessário garantir que a mesma já está instalada, caso não esteja, busque qual o comando para instar na sua distribuição Linux. Alguns exemplos:
+1. O programa executa comandos diretamente no [Sistema Operacional](https://en.wikipedia.org/wiki/Operating_system), desa forma, o mesmo possui as depedências operacionais **zip** e [**curl**](https://curl.se/download.html), então antes de executá-lo, é necessário garantir que as mesmas já estão instaladas, caso não estejam, busque qual o comando para instalá-las na sua distribuição Linux. Alguns exemplos:
    ```powershell
    # Debian-based
    sudo apt install zip
+   
+   sudo apt install curl
    ```
    ```powershell
    # Redhat 
    sudo dnf install zip
+   
+   sudo dnf install curl
    ```
    ```powershell
    # Arch-based 
    sudo pacman -S zip
+   
+   sudo pacman -S curl
    ```
    ```powershell
    # OpenSUSE
    sudo zypper install zip
+   
+   sudo zypper install curl
    ```
 2. Faça o download das dependências do programa:
    ```powershell
