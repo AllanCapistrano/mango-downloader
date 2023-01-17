@@ -24,7 +24,7 @@ if __name__ == "__main__":
         link: str = input("Digite o nome do mangá ou a URL do capítulo ou mangá que deseja baixar: ")
 
         if(isUrl(link)):
-            if(isMangaLink(link)): # Caso seja um link de um mangá.
+            if(isMangaLink(link)): # Caso seja o link de um mangá.
                 for chapter_link in crawler.getChaptersUrls(link):
                     chapters.append(
                         {
@@ -32,14 +32,14 @@ if __name__ == "__main__":
                             "downloaded": False
                         }
                     )
-            else:
+            else: # Caso seja o link de um capítulo.
                 chapters.append(
                     {
                         "chapter_link": link,
                         "downloaded": False
                     }
                 )
-        else:
+        else: # Caso seja o nome do mangá.
             manga_name: str = link
 
             manga_list_page: str = getMangaListPage(manga_name)
@@ -47,6 +47,7 @@ if __name__ == "__main__":
             
             mangas: List[Dict[str, str]] = []
 
+            # Obtendo os mangás que começam com a primeira letra do mangá que se deseja baixar.
             for page_number in range(0, last_page):
                 url: str = sub(r"\d", f"{page_number + 1}", manga_list_page)
 
@@ -55,36 +56,88 @@ if __name__ == "__main__":
             if(len(mangas) > 0):
                 result: List[Dict[str, str]] = []
 
+                # Verificando quais mangás possuem o mesmo nome daquele que o usuário deseja.
                 for manga in mangas:
                     if(manga["manga_name"].lower().find(manga_name.lower()) != -1):
                         result.append(manga)
 
-                for index in range(0, len(result)):
-                    print(f"{index + 1} - {result[index]['manga_name']}")
+                if(len(result) > 0):
+                    # Exibindo a lista de mangás encontrados.
+                    for index in range(0, len(result)):
+                        print(f"{index + 1} - {result[index]['manga_name']}")
 
-                manga_option: int = -1
+                    manga_option: int = -1
 
-                while(manga_option <= 0 or manga_option > len(result)):
-                    try:
-                        manga_option: int = int(input("Digite o número correspondente ao mangá que deseja baixar: "))
-                    except:
-                        print("Opção inválida! Tente novamente.")
+                    while(manga_option <= 0 or manga_option > len(result)):
+                        try:
+                            manga_option: int = int(input("Digite o número correspondente ao mangá que deseja baixar: "))
+                        except:
+                            print("Opção inválida! Tente novamente.")
 
-                    if(manga_option == 0 or manga_option > len(result)):
-                        print("Opção inválida! Tente novamente.")
+                        if(manga_option <= 0 or manga_option > len(result)):
+                            print("Opção inválida! Tente novamente.")
 
-                manga_option = manga_option - 1
+                    manga_option = manga_option - 1
 
-                print(manga_option)
+                    chapters_result: List[Dict[str, str]] = crawler.getChaptersNamesAndUrls(result[manga_option]["manga_link"])
 
-                # TODO: Exibir quais são as opções de capítulos disponíveis para o usuário baixar.
+                    chapters_result.reverse()
+                    
+                    # Exibindo a lista de capítulos encontrados
+                    print("0 - Baixar todos os capítulos disponíveis")
+
+                    for index in range(0, len(chapters_result)):
+                        print(f"{index + 1} - {chapters_result[index]['chapter_name']}")
+
+                    more_chapter_option: str = ""
+
+                    while(more_chapter_option != "N" and more_chapter_option != "n"):
+                        chapter_option: int = -1
+
+                        while(chapter_option < 0 or chapter_option > len(chapters_result)):
+                            try:
+                                chapter_option: int = int(input("Digite o número correspondente ao capítulo que deseja baixar: "))
+                            except:
+                                print("Opção inválida! Tente novamente.")
+
+                            if(chapter_option < 0 or chapter_option > len(result)):
+                                print("Opção inválida! Tente novamente.")
+                        
+                        chapter_option = chapter_option - 1
+
+                        # Adicionando os capítulos que o usuário deseja baixar.
+                        if(chapter_option == -1): # Caso deseje baixar todos os capítulos disponíveis.
+                            for chapter_result in chapters_result:
+                                chapters.append(
+                                    {
+                                        "chapter_link": chapter_result["chapter_link"],
+                                        "downloaded": False
+                                    }
+                                )
+                            
+                            break
+                        else:
+                            chapters.append(
+                                    {
+                                        "chapter_link": chapters_result[chapter_option]["chapter_link"],
+                                        "downloaded": False
+                                    }
+                                )
+
+                        more_chapter_option: str = input("Deseja baixar mais um capítulo (S/n)? ")
+                else:
+                    print(f"Não encontramos nenhum mangá com o nome '{manga_name}'.")
+
+                    chapters.append(
+                        {
+                            "chapter_link": link,
+                            "downloaded": False
+                        }
+                    )
             else:
-                chapters.append(
-                    {
-                        "chapter_link": link,
-                        "downloaded": False
-                    }
-                )
+                print("Não foi possível encontrar mangás na plataforma, tente novamente mais tarde.")
+                
+                exit()
 
         option: str = input("Deseja baixar algo mais (S/n)? ")
 
