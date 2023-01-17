@@ -1,4 +1,4 @@
-from typing import List
+from typing import List, Dict
 from re import sub
 
 import requests
@@ -114,6 +114,32 @@ class Crawler:
             manga_urls.append(manga.find("a").attrs["href"])
 
         return manga_urls
+
+    def getAllMangaNamesAndUrls(self, url: str) -> List[Dict[str, str]]:
+        """ Obtém o nome e a URL de todos os mangás listados na página.
+
+        Parameters
+        -----------
+        url: :class:`str`
+            URL da página de lista de mangás.
+
+        Returns
+        -------
+        :class:`List[Dict[str, str]]`
+        """
+
+        manga_info: List[Dict[str, str]] = []
+
+        for manga in self.__reqUrl__(url).find_all("div", class_="lista-mangas-novos"):
+            manga_name: str = manga.find("b").contents[0]
+            manga_url: str = manga.find("a").attrs["href"]
+
+            manga_info.append({
+                "manga_name": manga_name,
+                "manga_url": manga_url
+            })
+
+        return manga_info
 
     def getLastPageNumberMangaList(self, url: str) -> int:
         """ Obtém o número da última página da lista de mangás.
