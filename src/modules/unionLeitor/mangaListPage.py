@@ -21,7 +21,7 @@ def getMangaListPage(manga_name: str) -> str:
     file_path: str = join(current_path, "../../lists/mangas.list")
 
     # Verificando se o primeiro caractere do nome do mangá é uma letra ou não.
-    if(sub(r"[aA-zZ\-\s]", "", manga_name[:1]) != ""):
+    if(sub(r"[a-zA-z-\s]", "", manga_name[:1]) != ""):
         # Se não for uma letra entra, retorna a primeira URL presente no arquivo.
         with open(file_path, "r") as file:
             return file.readline()
