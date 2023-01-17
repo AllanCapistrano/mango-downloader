@@ -5,7 +5,7 @@ from re import sub
 from services import Crawler
 from services import Downloader
 from services import Uploader
-from modules.unionLeitor import parser, getMangaListPage
+from modules.unionLeitor import getMangaListPage, isUrl, isValidUrl, isMangaLink
 from modules.terminal.zip import zip
 from modules.terminal.removeFiles import removeFilesAndDirectories
 
@@ -23,8 +23,8 @@ if __name__ == "__main__":
     while(option != "N" and option != "n"):
         link: str = input("Digite o nome do mangá ou a URL do capítulo ou mangá que deseja baixar: ")
 
-        if(parser.isUrl(link)):
-            if(parser.isMangaLink(link)): # Caso seja um link de um mangá.
+        if(isUrl(link)):
+            if(isMangaLink(link)): # Caso seja um link de um mangá.
                 for chapter_link in crawler.getChaptersUrls(link):
                     chapters.append(
                         {
@@ -95,7 +95,7 @@ if __name__ == "__main__":
 
     # Fazendo o download dos capítulos.
     for chapter in chapters:
-        if(parser.isValidUrl(chapter["chapter_link"])):
+        if(isValidUrl(chapter["chapter_link"])):
             crawler: Crawler = Crawler()
             downloader: Downloader = Downloader()
             uploader: Uploader = Uploader()

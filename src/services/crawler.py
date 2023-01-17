@@ -4,7 +4,7 @@ from re import sub
 import requests
 from bs4 import BeautifulSoup
 
-from modules import parser
+from modules import isValidImage, isValidMangaImage, isNotBanner
 
 class Crawler:
     def __reqUrl__(self, url: str) -> BeautifulSoup:
@@ -44,9 +44,9 @@ class Crawler:
         for image in self.__reqUrl__(url).find_all("img", class_="img-manga"):
             if(
                 image.attrs["src"] != None and 
-                parser.isValidMangaImage(image.attrs["src"]) and
-                parser.isValidImage(image.attrs["src"]) and
-                parser.isNotBanner(image.attrs["src"])
+                isValidMangaImage(image.attrs["src"]) and
+                isValidImage(image.attrs["src"]) and
+                isNotBanner(image.attrs["src"])
             ):
                 imagesUrl.append(image.attrs["src"])
                 
