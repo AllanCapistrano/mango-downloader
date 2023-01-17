@@ -164,7 +164,7 @@ class Crawler:
 
             manga_info.append({
                 "manga_name": manga_name,
-                "manga_url": manga_url
+                "manga_link": manga_url
             })
 
         return manga_info
