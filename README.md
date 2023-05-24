@@ -5,7 +5,7 @@
 > 
 > Para isso é informado a URL do capitúlo do mangá (consutar as [plataformas suportadas](#-plataformas-suportadas)), é feito o download das imagens, os arquivos então são comprimidos utilizando `.zip`, e fica disponível em uma pasta do [Google Drive](https://drive.google.com/drive/my-drive) configurada pelo usuário.
 >
-> O nome **mango-downloader** é uma brincadeira juntando a palavra *"mango"*, que traduzindo do idioma Inglês, significa a fruta "manga", pois essa palavra em português é bem próxima da palavra "mangá"; e *"downloader"* que estaria realacioda com a plavra *"download"* do idioma Inglês, que significa "baixar".
+> O nome **mango-downloader** é uma brincadeira juntando a palavra *"mango"*, que traduzindo do idioma Inglês, significa a fruta "manga", pois essa palavra em português é bem próxima da palavra "mangá"; e *"downloader"* que estaria realacioda com a palavra *"download"* do idioma Inglês, que significa "baixar".
 >
 > Qualquer dúvida, sugestão, *bugs* ou erros são bem-vindos, para isso, utilize a aba de [Issues](https://github.com/AllanCapistrano/mango-downloader/issues) com a [*label*](https://github.com/AllanCapistrano/mango-downloader/labels) correta.
 
